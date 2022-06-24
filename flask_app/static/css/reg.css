@@ -1,0 +1,16 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: rgb(40,43,48);
+}
+
+.container {
+    background-color: rgb(66,69,73);
+}
+
+input {
+    min-width: 0px;
+}
