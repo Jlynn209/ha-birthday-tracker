@@ -13,12 +13,14 @@
     }
     
     .left{
+        min-height: 90%;
         max-height: 90%;
         overflow-y: auto;
         background-color: rgb(54,57,62);
     }
     
     .right{
+        min-height: 90%;
         max-height: 90%;
         overflow-y: auto;
         background-color: rgb(66,69,73);
@@ -31,10 +33,9 @@
     }
 
     .main-info{
+        min-height: 0px;
         height: 90%;
-        min-height: auto;
-        max-height: 100%;
-        border: solid;
+        max-height: auto;
     }
 }
 
