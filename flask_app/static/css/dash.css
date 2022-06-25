@@ -1,14 +1,59 @@
 @media all and (max-width: 1000px) {  
-    h2 {
+    h2, th, td {
         font-size: medium;
     }
 
-    th {
-        font-size: medium;
+    .background {
+        background-color: rgb(44,47,51);
     }
     
-    td {
-        font-size: medium;
+    .container {
+        background-color: rgb(40,43,48);
+        height: 100vh;
     }
+    
+    .left{
+        max-height: 200px;
+        overflow-y: scroll;
+        background-color: rgb(54,57,62);
+    }
+    
+    .right{
+        max-height: 200px;
+        overflow-y: scroll;
+        background-color: rgb(66,69,73);
+    }
+}
 
-  }
+
+@media all and (min-width: 1001px) {
+    td, p {
+        font-weight: bold;
+    }
+    
+    .background {
+        background-color: rgb(44,47,51);
+    }
+    
+    .container {
+        background-color: rgb(40,43,48);
+        height: 100vh;
+    }
+    
+    .left{
+        min-height: 780px;
+        background-color: rgb(54,57,62);
+    }
+    
+    .right{
+        min-height: 780px;
+        background-color: rgb(66,69,73);
+    }
+    
+    
+    .bday-info {
+        border-radius: 40px;
+        border-color: black;
+        border-width: 2px;
+    }
+}
