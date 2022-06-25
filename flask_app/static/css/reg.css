@@ -10,3 +10,7 @@ body {
     background-color: rgb(66,69,73);
 
 }
+
+input {
+    min-width:0;
+}

@@ -13,15 +13,23 @@
     }
     
     .left{
-        max-height: 200px;
+        min-height: 300px;
+        max-height: 400px;
         overflow-y: scroll;
         background-color: rgb(54,57,62);
     }
     
     .right{
-        max-height: 200px;
+        min-height: 300px;
+        max-height: 400px;
         overflow-y: scroll;
         background-color: rgb(66,69,73);
+    }
+
+    .bday-info {
+        border-radius: 40px;
+        border-color: black;
+        border-width: 2px;
     }
 }
 
