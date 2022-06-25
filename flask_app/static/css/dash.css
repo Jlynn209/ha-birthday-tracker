@@ -49,13 +49,17 @@
     }
     
     .left{
-        min-height: 780px;
         background-color: rgb(54,57,62);
     }
+
     
     .right{
-        min-height: 780px;
+        min-height: 100%;
         background-color: rgb(66,69,73);
+    }
+    .main-info{
+        height: 700px;
+        max-height: 700px;
     }
     
     
