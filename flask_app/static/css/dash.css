@@ -76,6 +76,13 @@
         background-color: rgb(66,69,73);
     }
 
+    .solo-right{
+        min-height: 90%;
+        max-height: 90%;
+        overflow-y: auto;
+        background-color: rgb(66,69,73);
+    }
+
     .main-info{
         min-height: 0px;
         height: 90%;
