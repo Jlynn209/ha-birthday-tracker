@@ -1,4 +1,4 @@
-@media all and (max-width: 1000px) {  
+@media all and (max-width: 1500px) {  
     h2, th, td {
         font-size: medium;
     }
@@ -13,12 +13,14 @@
     }
     
     .left{
-        overflow-y: scroll;
+        max-height: 90%;
+        overflow-y: auto;
         background-color: rgb(54,57,62);
     }
     
     .right{
-        overflow-y: scroll;
+        max-height: 90%;
+        overflow-y: auto;
         background-color: rgb(66,69,73);
     }
 
@@ -37,7 +39,7 @@
 }
 
 
-@media all and (min-width: 1001px) {
+@media all and (min-width: 1501px) {
     td, p {
         font-weight: bold;
     }
@@ -52,19 +54,24 @@
     }
     
     .left{
+        min-height: 90%;
+        max-height: 90%;
+        overflow-y: auto;
         background-color: rgb(54,57,62);
     }
 
     
     .right{
+        min-height: 90%;
+        max-height: 90%;
+        overflow-y: auto;
         background-color: rgb(66,69,73);
     }
 
     .main-info{
+        min-height: 0px;
         height: 90%;
-        min-height: auto;
-        max-height: 100%;
-        border: solid;
+        max-height: auto;
     }
     
     

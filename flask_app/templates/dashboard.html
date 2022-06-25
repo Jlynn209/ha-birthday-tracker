@@ -32,88 +32,80 @@
                 </div>
             </div>
     
-            <div class="col">
-                {% if pendings %}
-                <div class="row main-info d-flex">
-                {% else %}
-                <div>
-                {% endif %}
-                    <!-- pending transactions -->        
-                    {% if pendings  %}
-                    <div class="col-lg-4 col-md-auto left">
-                        <div class="d-flex justify-content-center">
-                            <h2 class="text-white" >Waiting to get approved</h2>
-                        </div>
-                        <table class="w-100">
-                            <tr class="d-flex">
-                                <th class="col d-flex justify-content-center text-white" >Handle</th>
-                                <th class="col d-flex justify-content-center text-white">Birthday</th>
-                                {% if session['user_role'] == 1 %}
-                                <th class="col d-flex justify-content-center text-white">actions</th>
-                                {% endif %}
-                            </tr>
-                            {% for pending in pendings %}    
-                            <tr class="d-flex bday-info mb-1 mb-2">
-                                <td class="col d-flex justify-content-center text-white">{{pending.handle}}</td>
-                                <td class="col d-flex justify-content-center">
-                                    <p id="pendingMonth" class="text-white">{{pending.birthday}}</p>
-                                    <p class="text-white">/</p>
-                                    <p id="pendingDay" class="text-white">{{pending.birthday}}</p>
-                                </td>
-                                {% if session['user_role'] == 1 %}    
-                                <td class="d-flex col actions">
-                                    <div class="col d-flex">
-                                        <form action="/process/approved/{{pending.id}}" method="post">
-                                            <input class="btn btn-link btn-sm" type="submit" value="Approved">
-                                        </form>
-                                    </div>
-                                    <div class="col d-flex">
-                                        <form class="my-form" action="/delete/pending/{{pending.id}}" method="post">
-                                            <input class="btn btn-link btn-sm" type="submit" value="Denied">
-                                        </form>
-                                    </div>
-                                </td>
-                                {% endif %}
-                            </tr>
-                            {% endfor %}
-                        </table>
+            
+            <div {% if pendings %} class="row main-info d-flex" {% else %} class="row main-info d-flex" {% endif %}>           
+                <!-- pending transactions -->        
+                {% if pendings  %}
+                <div class="col-lg-4 col-md-auto left">
+                    <div class="d-flex justify-content-center">
+                        <h2 class="text-white" >Waiting to get approved</h2>
                     </div>
-                    {% endif %}
-                    <!-- approved birthdays -->
-                    {% if pendings %}
-                    <div class="col-lg-8 col-md-6 right">
-                    {% endif %}
-                    <div class="col">
-                        <div class="d-flex justify-content-center">
-                            <h2 class="text-white">Current Birthdays</h2>
-                        </div>
-                        <table class="w-100">
-                            <tr class="d-flex">
-                                <th class="col d-flex justify-content-center text-white">Handle</th>
-                                <th class="col d-flex justify-content-center text-white">Birthday</th>
-                                {% if session['user_role'] == 1 %}
-                                <th class="col d-flex justify-content-center text-white">actions</th>
-                                {% endif %}
-                            </tr>
-                            {% for birthday in birthdays %}
-                            <tr class="d-flex bday-info mb-2" id="birthdayRow">
-                                <td class="col d-flex justify-content-center text-white">{{birthday.handle}}</td>
-                                <td class="col d-flex justify-content-center">
-                                    <p id="birthdayMonth" class="text-white">{{birthday.birthday}}</p>
-                                    <p class="text-white">/</p>
-                                    <p id="birthDay" class="text-white">{{birthday.birthday}}</p>
-                                </td>
-                                {% if session['user_role'] == 1 %}                        
-                                <td class="col d-flex justify-content-center">
-                                    <form action="/delete/approved/{{birthday.id}}" method="post">
-                                        <input class="btn btn-link btn-sm" type="submit" value="Delete">
+                    <table class="w-100">
+                        <tr class="d-flex">
+                            <th class="col d-flex justify-content-center text-white" >Handle</th>
+                            <th class="col d-flex justify-content-center text-white">Birthday</th>
+                            {% if session['user_role'] == 1 %}
+                            <th class="col d-flex justify-content-center text-white">actions</th>
+                            {% endif %}
+                        </tr>
+                        {% for pending in pendings %}    
+                        <tr class="d-flex bday-info mb-1 mb-2">
+                            <td class="col d-flex justify-content-center text-white">{{pending.handle}}</td>
+                            <td class="col d-flex justify-content-center">
+                                <p id="pendingMonth" class="text-white">{{pending.birthday}}</p>
+                                <p class="text-white">/</p>
+                                <p id="pendingDay" class="text-white">{{pending.birthday}}</p>
+                            </td>
+                            {% if session['user_role'] == 1 %}    
+                            <td class="d-flex col actions">
+                                <div class="col d-flex">
+                                    <form action="/process/approved/{{pending.id}}" method="post">
+                                        <input class="btn btn-link btn-sm" type="submit" value="Approved">
                                     </form>
-                                </td>
-                                {% endif %}
-                            </tr>
-                            {% endfor %}
-                        </table>
+                                </div>
+                                <div class="col d-flex">
+                                    <form class="my-form" action="/delete/pending/{{pending.id}}" method="post">
+                                        <input class="btn btn-link btn-sm" type="submit" value="Denied">
+                                    </form>
+                                </div>
+                            </td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+                {% endif %}
+                <!-- approved birthdays -->           
+                <div {% if pendings %} class="col-lg-8 col-md-6 right" {% else %} class="col right" {% endif %}>
+                    <div class="d-flex justify-content-center">
+                        <h2 class="text-white">Current Birthdays</h2>
                     </div>
+                    <table class="w-100">
+                        <tr class="d-flex">
+                            <th class="col d-flex justify-content-center text-white">Handle</th>
+                            <th class="col d-flex justify-content-center text-white">Birthday</th>
+                            {% if session['user_role'] == 1 %}
+                            <th class="col d-flex justify-content-center text-white">actions</th>
+                            {% endif %}
+                        </tr>
+                        {% for birthday in birthdays %}
+                        <tr class="d-flex bday-info mb-2" id="birthdayRow">
+                            <td class="col d-flex justify-content-center text-white">{{birthday.handle}}</td>
+                            <td class="col d-flex justify-content-center">
+                                <p id="birthdayMonth" class="text-white">{{birthday.birthday}}</p>
+                                <p class="text-white">/</p>
+                                <p id="birthDay" class="text-white">{{birthday.birthday}}</p>
+                            </td>
+                            {% if session['user_role'] == 1 %}                        
+                            <td class="col d-flex justify-content-center">
+                                <form action="/delete/approved/{{birthday.id}}" method="post">
+                                    <input class="btn btn-link btn-sm" type="submit" value="Delete">
+                                </form>
+                            </td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                    </table>
                 </div>
             </div>
             <div class="d-flex justify-content-center">
