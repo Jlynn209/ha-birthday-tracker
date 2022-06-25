@@ -8,20 +8,19 @@ let my_rows = document.querySelectorAll("#birthdayRow")
 for (let i = 0; i < my_rows.length; i++) {
     let birthday_data = my_rows[i].childNodes[3].childNodes[1].innerHTML
 
-    let month = new Date(birthday_data);
-    let day = new Date(birthday_data);
+    let d = new Date(birthday_data);
 
-    let birthdayMonth = month.getMonth() + 1;
-    let birthdayDay = month.getDate() + 1;
+    let birthdayMonth = d.getMonth() + 1;
+    let birthdayDay = d.getDate() + 1;
 
 
     let currentDate = new Date();
 
 
     if ((currentDate.getMonth() + 1) === birthdayMonth && (currentDate.getDate()) === birthdayDay ){
-        my_rows[i].style.backgroundColor = 'green';
+        my_rows[i].style.backgroundColor = '#3ED625';
     } else if ((currentDate.getMonth() + 1) === birthdayMonth) {
-        my_rows[i].style.backgroundColor = 'yellow';
+        my_rows[i].style.backgroundColor = '#F9F018';
     }
 }
 
