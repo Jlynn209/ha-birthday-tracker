@@ -29,7 +29,6 @@ def home():
     return render_template("reg.html")
 
 
-
 # ####################
 # Redirects
 # ####################

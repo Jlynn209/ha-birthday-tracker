@@ -31,6 +31,35 @@ def dashboard():
     return render_template("dashboard.html", pendings = pendings, birthdays = birthdays)
 
 
+@app.route("/edit/<int:id>")
+def edit_display(id):
+    # ####################
+    # Route guard
+    # ####################
+
+
+    if not 'user_id' in session:
+        return redirect("/")
+
+    if session['user_role'] != User.get_one({'id': session['user_id']}).role:
+        session.clear()
+        return redirect("/logout")
+    
+    if session['user_role'] != 1:
+        return redirect("/")
+    
+    # ####################
+
+
+    data = {
+        'id' : id
+    }
+
+    info = Birthday.get_one_birthday(data)
+
+    return render_template("edit.html", info = info)
+
+
 # ####################
 # Redirects
 # ####################
@@ -123,5 +152,18 @@ def delete_approved(id):
 
     return redirect("/dashboard")
 
+
+@app.route("/process/edit", methods=["POST"])
+def process_edit():
+
+    data = {
+        'id' : request.form['i'],
+        'handle': request.form['handle'],
+        'birthday': request.form['birthday'],
+    }
+
+    Birthday.update_birthday(data)
+    print("**********************")
+    return redirect("/dashboard")
 
 

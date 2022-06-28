@@ -43,7 +43,7 @@ class Birthday:
 
     @classmethod
     def get_one_pending(cls, data):
-        query = "SELECT * FROM pending WHERE pending.id = %(id)s;"
+        query = "SELECT * FROM pending WHERE id = %(id)s;"
         results = connectToMySQL(DATABASE).query_db(query, data)
         return cls(results[0])
 
@@ -80,13 +80,13 @@ class Birthday:
 
     @classmethod
     def get_one_birthday(cls, data):
-        query = "SELECT * FROM birthdays WHERE birthday.id = %(id)s;"
+        query = "SELECT * FROM birthdays WHERE id = %(id)s;"
         results = connectToMySQL(DATABASE).query_db(query, data)
         return cls(results[0])
 
 
-    # @classmethod
-    # def update(cls, data):
-    #     query = "UPDATE ### SET ###=%(###)s,###=%(###)s,###=%(###)s WHERE id = %(id)s;" 
-    #     return connectToMySQL('NAME_OF_DATA_BASE').query_db(query,data)
+    @classmethod
+    def update_birthday(cls, data):
+        query = "UPDATE birthdays SET handle=%(handle)s,birthday=%(birthday)s WHERE id = %(id)s;" 
+        return connectToMySQL(DATABASE).query_db(query,data)
             
