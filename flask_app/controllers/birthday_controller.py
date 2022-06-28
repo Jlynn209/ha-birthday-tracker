@@ -157,7 +157,7 @@ def delete_approved(id):
 def process_edit():
 
     data = {
-        'id' : request.form['i'],
+        'id' : request.form['id'],
         'handle': request.form['handle'],
         'birthday': request.form['birthday'],
     }
