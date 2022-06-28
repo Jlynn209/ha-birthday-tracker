@@ -9,7 +9,7 @@
 <body>
     <form action="/process/edit" method="post">
         <input type="hidden" name="id" value="{{info.id}}">
-        <input type="text" name="handle" placeholder="{{info.handle}}">
+        <input type="text" name="handle" value="{{info.handle}}">
         <input type="date" name="birthday" value="{{info.birthday}}">
         <input type="submit" value="Create">
     </form>
