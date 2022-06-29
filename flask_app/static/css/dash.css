@@ -44,6 +44,10 @@
         height: 90%;
         max-height: auto;
     }
+
+    input {
+        min-width:0;
+    }
 }
 
 
